@@ -1,0 +1,82 @@
+#body{
+    max-width: 100%;
+    overflow: hidden;
+}
+.logo{
+    width: 120px;
+    height: 100px;
+}
+.header{
+    background-color: #106CC8;
+    border-bottom: solid #0E5EAD 10px;
+    max-width: 100%;
+    width: 100%;
+}
+.Bbusqueda{
+    width: 36rem;
+    height: 35px;
+    margin: 20px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 20px;
+    background-color: #81B0DF;
+
+}
+.Bbusqueda:focus{
+    outline: none;
+}
+.centrar{
+    padding-left: 180px;
+}
+.search{
+    margin-bottom: 6px;
+    margin-left: -24px;    
+    background-color:#3D8BD9;
+    height: 34px;
+    width: 40px;
+    padding: 5px;
+    border-radius: 0px 5px 5px 0px;
+    cursor: pointer;
+}
+.separacion{
+    width: 2px;
+    height: 29px;
+    background-color: #233F5C;
+    position: relative;
+    top: 10px;
+}
+.inlines{
+    display: inline-block;
+}
+#TarjetaP{
+   margin-top: 15px;
+}
+.imgTp{
+    height: 300px;
+}
+#tarjetas-anuncios{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.iconos-Anuncios{
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.cards{
+    width: 350px;
+    margin: auto;
+    max-height: 283px;
+}
+#footer{
+    background-color: #0E5EAD;
+}
+.text-white-50{
+    text-decoration: none;
+}
+.iconFooter{
+    cursor: pointer;
+}
+.iconFooterLeft{
+    margin-left:8px ;
+}
