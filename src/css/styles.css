@@ -4,13 +4,26 @@
 }
 .logo{
     width: 120px;
-    height: 100px;
+    height: 90px;
 }
 .header{
     background-color: #106CC8;
-    border-bottom: solid #0E5EAD 10px;
     max-width: 100%;
     width: 100%;
+}
+.direccionesHeader{
+    background-color: #0E5EAD;
+    height: 30px;
+    padding-left: 1%;
+    
+}
+.direccionesHeader a{
+    color: rgb(182, 186, 190);
+    text-decoration: none;
+    margin-right: 10px;
+}
+.direccionesHeader a:hover{
+    color: rgb(255, 255, 255);
 }
 .Bbusqueda{
     width: 36rem;
@@ -79,4 +92,36 @@
 }
 .iconFooterLeft{
     margin-left:8px ;
+}
+#logincontainer{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#login{
+    margin: auto;
+    width: 310px;
+    padding-top: 10px;
+}
+.inputs input{ 
+    padding-top: -15px;
+    width: 250px;
+}
+.inputs{
+    padding-left: 26px;
+    padding-bottom: 20px;
+}
+.btnlogin{
+    width: 120px;
+    margin: 10px;
+}
+.divbotones{
+    position: relative;
+    left: 14px;
+}
+#login a{
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+#login p{
+    margin-bottom:4px ;
 }

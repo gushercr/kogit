@@ -1,5 +1,4 @@
 import Logo from './../multimedia/logo.png'
-import './../css/styles.css';
 import { Search } from 'react-bootstrap-icons';
 function header() {
     return (
@@ -21,8 +20,12 @@ function header() {
                     <button className="btn text-light fs-5 inlines" >Registrarme</button>
                 </div>
             </div>
+            <div className="direccionesHeader">
+                <a href="#" >Publicaciones</a>
+                <a href="#" >Repositorios</a>
+            </div>
         </div>
-
+        
     );
 }
 export default header;
