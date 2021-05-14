@@ -1,6 +1,6 @@
 function login() {
     return (
-      <div className="container" id="logincontainer">
+      <div className="container" id="registrocontainer">
         <div className="card shadow-sm mb-5 bg-body rounded" id="login">
             <h3 className="text-center">Inicia sesion</h3><br/>
                 <form action="" method="POST">
@@ -12,7 +12,7 @@ function login() {
                 </div>
                 <div className="divbotones">
                     <input type="submit" className="btnlogin btn btn-primary " value="Iniciar sesion" />  
-                    <button className="btn btn-outline-danger btnlogin">Cancelar</button>
+                    <button className="btn btn-outline-danger btneditarder">Cancelar</button>
                 </div>
                 
             </form>

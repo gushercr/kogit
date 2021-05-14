@@ -125,3 +125,114 @@
 #login p{
     margin-bottom:4px ;
 }
+#cardregistro{
+    border: none;
+    margin: auto;
+    width: 450px;
+    padding-top: 10px;
+}
+#cardregistro p{
+    margin-bottom:2px ;
+}
+#cardregistro a{
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+#cardregistro select{
+    padding-top: -15px;
+    width: 200px;
+}
+.inputcorto{ 
+    padding-top: -15px;
+    max-width: 400px;
+}
+.inputlargo{ 
+    padding-top: -15px;
+    max-width: 450px;
+}
+.inputsRegistro{ 
+    padding-left: 15px;
+    padding-bottom: 20px;
+}
+.divbotonesregistro{
+    position: relative;
+    left: 90px;
+}
+.form-check{
+    margin-left: 15px;
+
+}
+#registrocontainer{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.imguser{
+    max-height:200px;
+    width: 200px;
+    margin-top: 20px;
+    
+}
+.editarimg{
+    position: relative;
+    left: 60px;
+    top: -42px;
+    color: gray;
+    cursor: pointer;
+}
+.editarimg:hover{
+    color: black;
+}
+#perfil h3{
+    margin-top: -25px;
+}
+#perfil{
+    min-height: 400px;
+}
+.datos{
+    padding-top: 40px;
+}
+.datos input{
+    color: gray;
+    padding-left: 40px;
+    padding-top: 15px;
+    height: 46px;
+    display: inline;
+    border: none;
+}
+.datos p{
+    position: relative;
+    top: 15px;
+}
+.datos span{
+    border: none;
+    background-color: rgb(218, 218, 218);
+}
+.iconseditarbtn{
+    margin-right: 6px;
+    margin-top: -5px;
+}
+.datos button{
+    margin-bottom: 20px;
+}
+#formularioEditContra .modal-body{
+    padding-left:72px;
+ }
+#formularioEditContra input{
+   max-width: 310px;
+}
+#formularioEditContra p{
+    margin-bottom: 5px;
+}
+#formularioEditContra .input-group{
+    margin-bottom: 12px;
+}
+.btneditar{
+    margin-left: 60px;
+    margin-top: 20px;
+}
+.btneditarder{
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+
