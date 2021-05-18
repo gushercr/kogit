@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 function registro() {
     return (
       <div className="container" id="logincontainer">
@@ -56,7 +57,7 @@ function registro() {
                     <button className="btn btn-outline-danger btnlogin">Cancelar</button>
                 </div>
             </form>
-            <a className="link-primary text-center" href="#">¿Ya tienes una cuenta?, haz click aquí</a>
+            <Link className="link-primary text-center" to="/Login">¿Ya tienes una cuenta?, haz click aquí</Link>
         </div>
       </div>
     );

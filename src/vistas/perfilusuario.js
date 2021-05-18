@@ -18,34 +18,34 @@ function perfil() {
                 <p>Usuario</p>
                 <div class="input-group">
                   <span class="input-group-text"><PersonFill className="" color="#00000" size={18}/></span>
-                  <input type="text" value="Usuario" class="form-control" placeholder="Username" disabled/>
+                  <input type="text" value="" class="form-control" placeholder="Username" disabled/>
                 </div>
                 <p>Ubicacion</p>
                 <div class="input-group">
                   <span class="input-group-text"><GeoAltFill className="" color="#00000" size={18}/></span>
-                  <input type="text" value="Usuario" class="form-control" placeholder="Username" disabled/>
+                  <input type="text" value="" class="form-control" placeholder="Ubicacion" disabled/>
                 </div>
                 <p>Twiter</p>
                 <div class="input-group">
                   <span class="input-group-text"><Twitter className="" color="#00000" size={18}/></span>
-                  <input type="text" value="Usuario" class="form-control" placeholder="Username" disabled/>
+                  <input type="text" value="" class="form-control" placeholder="@Twiter" disabled/>
                 </div>
               </div>
               <div className="col-4">
                   <p>Nombre</p>
                   <div class="input-group">
                     <span class="input-group-text"><Type className="" color="#00000" size={18}/></span>
-                    <input type="text" value="Usuario" class="form-control" placeholder="Username" disabled/>
+                    <input type="text" value="" class="form-control" placeholder="Nombre" disabled/>
                   </div>
                   <p>Compañia</p>
                   <div class="input-group">
                     <span class="input-group-text"><ShopWindow className="" color="#00000" size={18}/></span>
-                    <input type="text" value="Usuario" class="form-control" placeholder="Username" disabled/>
+                    <input type="text" value="" class="form-control" placeholder="Kogit" disabled/>
                   </div>
                   <p>Sitio Web</p>
                   <div class="input-group">
                     <span class="input-group-text"><Globe className="" color="#00000" size={18}/></span>
-                    <input type="text" value="Usuario" class="form-control" placeholder="Username" disabled/>
+                    <input type="text" value="" class="form-control" placeholder="WWW.Kogit.com" disabled/>
                   </div>
               </div>
               <div className="col-4 datos">

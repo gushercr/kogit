@@ -1,23 +1,24 @@
-import Logo from './../multimedia/logo.png'
+import Logo from './../multimedia/logo2.png'
 import { Search } from 'react-bootstrap-icons';
+import {Link} from 'react-router-dom';
 function header() {
     return (
         <div className="header">
             <div className="row align-items-center">
                 <div className="col-2">
-                    <img className="logo" src={Logo} />
+                    <Link to="/"><img className="logo" src={Logo} /></Link>
                 </div>
                 {/* barra de busqueda */}
                 <div className="col-7">
                     <div className="centrar">
-                        <input className="Bbusqueda" placeholder="Buscar por palabras clave"/><Search className="search" color="#344759" size={28} />
+                        <input type="" className="Bbusqueda" placeholder="Buscar por palabras clave"/><Search className="search" color="#344759" size={28} />
                     </div>                         
                 </div>
                 {/* Botones de logueo */}
-                <div className="col-3">
-                    <button className="btn bt text-light fs-5 inlines">Iniciar sesion</button>
-                    <div className="inlines separacion"> </div>
-                    <button className="btn text-light fs-5 inlines" >Registrarme</button>
+                <div className="col-3">                   
+                        <Link className="btn bt text-light fs-5 inlines" to="/Login">Iniciar Sesion</Link>
+                        <div className="inlines separacion"> </div>
+                        <Link className="btn text-light fs-5 inlines" to="/Registro" >Registrarme</Link>
                 </div>
             </div>
             <div className="direccionesHeader">
