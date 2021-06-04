@@ -1,7 +1,25 @@
 import Logo from './../multimedia/logo2.png'
-import { Search } from 'react-bootstrap-icons';
+import { Search,CaretDownFill } from 'react-bootstrap-icons';
 import {Link} from 'react-router-dom';
-function header() {
+import { useLocalStorage } from '../useLocalStorage';
+import { useEffect, useState } from 'react';
+export default function Header() {
+    const [token,saveToken]=useLocalStorage('token','');
+    const [logueado,saveLog]=useState('');
+    const [clase,saveClass]=useState('');
+    useEffect(()=>{
+        if (token!='') {
+            saveLog('')
+            saveClass('visually-hidden');
+        }else{
+            saveLog('visually-hidden')
+            saveClass('');
+        }        
+    });
+    function cerrarSesion(){
+        saveToken('');
+        window.location.replace('');   
+    }
     return (
         <div className="header">
             <div className="row align-items-center">
@@ -15,10 +33,23 @@ function header() {
                     </div>                         
                 </div>
                 {/* Botones de logueo */}
-                <div className="col-3">                   
-                        <Link className="btn bt text-light fs-5 inlines" to="/Login">Iniciar Sesion</Link>
-                        <div className="inlines separacion"> </div>
+                <div className="col-3">
+                    <div className={logueado}>
+                        <Link className="btn bt text-light fs-5 " to="/Perfil">Mi perfil</Link>
+                        <div className="dropdown">
+                                <a className="btn dropdown-toggle inlines" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"/>
+                                <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><button className="dropdown-item" onClick={()=>cerrarSesion()} >Cerrar sesion</button></li>
+                                </ul>
+                        </div>
+                    </div>  
+                    
+                    <div className={clase}>
+                        <Link className="btn text-light fs-5 inlines" to="/Login">Iniciar Sesion</Link>
+                        <div className="inlines separacion"/> 
                         <Link className="btn text-light fs-5 inlines" to="/Registro" >Registrarme</Link>
+                    </div>
+                        
                 </div>
             </div>
             <div className="direccionesHeader">
@@ -29,4 +60,4 @@ function header() {
         
     );
 }
-export default header;
+

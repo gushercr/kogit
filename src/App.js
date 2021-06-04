@@ -11,11 +11,12 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import { useLocalStorage } from './useLocalStorage';
+import { useEffect } from 'react';
 
-function App() {
+export default function App() {
   return (
     <div id="body">
-      
       <Router>
         <Header />
         <Switch>
@@ -28,9 +29,8 @@ function App() {
         <Footer />
       </Router>
       
-      
     </div>
   );
 }   
 
-export default App;
+

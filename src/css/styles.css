@@ -1,248 +1,261 @@
-#body{
-    max-width: 100%;
-    overflow: hidden;
+#body {
+  max-width: 100%;
+  overflow: hidden;
 }
-.logo{
-    height: 80px;
+.logo {
+  height: 80px;
 }
-.header{
-    background-color: #106CC8;
-    max-width: 100%;
-    width: 100%;
+.header {
+  background-color: #106cc8;
+  max-width: 100%;
+  width: 100%;
 }
-.direccionesHeader{
-    background-color: #0E5EAD;
-    height: 30px;
-    padding-left: 1%;
-    
+.direccionesHeader {
+  background-color: #0e5ead;
+  height: 30px;
+  padding-left: 1%;
 }
-.direccionesHeader a{
-    color: rgb(182, 186, 190);
-    text-decoration: none;
-    margin-right: 10px;
+.direccionesHeader a {
+  color: rgb(182, 186, 190);
+  text-decoration: none;
+  margin-right: 10px;
 }
-.direccionesHeader a:hover{
-    color: rgb(255, 255, 255);
+.direccionesHeader a:hover {
+  color: rgb(255, 255, 255);
 }
-.Bbusqueda{
-    width: 36rem;
-    height: 35px;
-    margin: 20px;
-    border-radius: 5px;
-    border: none;
-    padding-left: 20px;
-    background-color: #81B0DF;
-
+.Bbusqueda {
+  width: 36rem;
+  height: 35px;
+  margin: 20px;
+  border-radius: 5px;
+  border: none;
+  padding-left: 20px;
+  background-color: #81b0df;
 }
-.Bbusqueda:focus{
-    outline: none;
+.Bbusqueda:focus {
+  outline: none;
 }
-.centrar{
-    padding-left: 180px;
+.centrar {
+  padding-left: 180px;
 }
-.search{
-    margin-bottom: 6px;
-    margin-left: -24px;    
-    background-color:#3D8BD9;
-    height: 34px;
-    width: 40px;
-    padding: 5px;
-    border-radius: 0px 5px 5px 0px;
-    cursor: pointer;
+.search {
+  margin-bottom: 6px;
+  margin-left: -24px;
+  background-color: #3d8bd9;
+  height: 34px;
+  width: 40px;
+  padding: 5px;
+  border-radius: 0px 5px 5px 0px;
+  cursor: pointer;
 }
-.separacion{
-    width: 2px;
-    height: 29px;
-    background-color: #233F5C;
-    position: relative;
-    top: 10px;
+.separacion {
+  width: 2px;
+  height: 29px;
+  background-color: #233f5c;
+  position: relative;
+  top: 10px;
 }
-.inlines{
-    display: inline-block;
+.inlines {
+  display: inline-block;
 }
-#TarjetaP{
-   margin-top: 15px;
+#TarjetaP {
+  margin-top: 15px;
 }
-.imgTp{
-    height: 300px;
+.imgTp {
+  height: 300px;
 }
-#tarjetas-anuncios{
-    margin-top: 25px;
-    margin-bottom: 25px;
+#tarjetas-anuncios {
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
-.iconos-Anuncios{
-    margin: auto;
-    margin-top: 15px;
-    margin-bottom: 10px;
+.iconos-Anuncios {
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
-.cards{
-    width: 350px;
-    margin: auto;
-    max-height: 283px;
+.cards {
+  width: 350px;
+  margin: auto;
+  max-height: 283px;
 }
-#footer{
-    background-color: #0E5EAD;
+#footer {
+  background-color: #0e5ead;
 }
-.text-white-50{
-    text-decoration: none;
+.text-white-50 {
+  text-decoration: none;
 }
-.iconFooter{
-    cursor: pointer;
+.iconFooter {
+  cursor: pointer;
 }
-.iconFooterLeft{
-    margin-left:8px ;
+.iconFooterLeft {
+  margin-left: 8px;
 }
-#logincontainer{
-    margin-top: 30px;
-    margin-bottom: 30px;
+#logincontainer {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
-#login{
-    margin: auto;
-    width: 310px;
-    padding-top: 10px;
+#login {
+  margin: auto;
+  width: 310px;
+  padding-top: 10px;
 }
-.inputs input{ 
-    padding-top: -15px;
-    width: 250px;
+.inputs input {
+  padding-top: -15px;
+  width: 250px;
 }
-.inputs{
-    padding-left: 26px;
-    padding-bottom: 20px;
+.inputs {
+  padding-left: 26px;
+  padding-bottom: 20px;
 }
-.btnlogin{
-    width: 120px;
-    margin: 10px;
+.btnlogin {
+  width: 120px;
+  margin: 10px;
 }
-.btnCancelar{
-    margin-left: 10px;
-    
+.btnCancelar {
+  margin-left: 10px;
 }
-.divbotones{
-    position: relative;
-    left: 14px;
+.divbotones {
+  position: relative;
+  left: 14px;
 }
-#login a{
-    text-decoration: none;
-    margin-bottom: 10px;
+#login a {
+  text-decoration: none;
+  margin-bottom: 10px;
 }
-#login p{
-    margin-bottom:4px ;
+#login p {
+  margin-bottom: 4px;
 }
-#cardregistro{
-    border: none;
-    margin: auto;
-    width: 450px;
-    padding-top: 10px;
+#cardregistro {
+  border: none;
+  margin: auto;
+  width: 450px;
+  padding-top: 10px;
 }
-#cardregistro p{
-    margin-bottom:2px ;
+#cardregistro p {
+  margin-bottom: 2px;
 }
-#cardregistro a{
-    text-decoration: none;
-    margin-bottom: 10px;
+#cardregistro a {
+  text-decoration: none;
+  margin-bottom: 10px;
 }
-#cardregistro select{
-    padding-top: -15px;
-    width: 200px;
+#cardregistro select {
+  padding-top: -15px;
+  width: 200px;
 }
-.inputcorto{ 
-    padding-top: -15px;
-    max-width: 400px;
+.inputcorto {
+  padding-top: -15px;
+  max-width: 400px;
 }
-.inputlargo{ 
-    padding-top: -15px;
-    max-width: 450px;
+.inputlargo {
+  padding-top: -15px;
+  max-width: 450px;
 }
-.inputsRegistro{ 
-    padding-left: 15px;
-    padding-bottom: 20px;
+.inputsRegistro {
+  padding-left: 15px;
+  padding-bottom: 20px;
 }
-.divbotonesregistro{
-    position: relative;
-    left: 90px;
+.divbotonesregistro {
+  position: relative;
+  left: 90px;
 }
-.form-check{
-    margin-left: 15px;
-
+.form-check {
+  margin-left: 15px;
 }
-#registrocontainer{
-    margin-top: 30px;
-    margin-bottom: 30px;
+#registrocontainer {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
-.imguser{
-    max-height:200px;
-    width: 200px;
-    margin-top: 20px;
-    
+.imguser {
+  max-height: 200px;
+  width: 200px;
+  margin-top: 20px;
 }
-.editarimg{
-    position: relative;
-    left: 60px;
-    top: -42px;
-    color: gray;
-    cursor: pointer;
+.editarimg {
+  position: relative;
+  left: 60px;
+  top: -42px;
+  color: gray;
+  cursor: pointer;
 }
-.editarimg:hover{
-    color: black;
+.editarimg:hover {
+  color: black;
 }
-#perfil h3{
-    margin-top: -25px;
+#perfil h3 {
+  margin-top: -25px;
 }
-#perfil{
-    min-height: 400px;
+#perfil {
+  min-height: 400px;
 }
-.datos{
-    padding-top: 40px;
+.datos {
+  padding-top: 40px;
 }
-.datos input{
-    color: gray;
-    padding-left: 40px;
-    padding-top: 15px;
-    height: 46px;
-    display: inline;
-    border: none;
+.datos input {
+  color: gray;
+  padding-left: 40px;
+  padding-top: 15px;
+  height: 46px;
+  display: inline;
+  border: none;
+  background-color: rgb(240, 240, 240);
 }
-.datos p{
-    position: relative;
-    top: 15px;
+.datos input:focus {
+  border: solid gray 0.5px;
+  box-shadow: none;
 }
-.datos span{
-    border: none;
-    background-color: rgb(218, 218, 218);
+.datos p {
+  position: relative;
+  top: 15px;
 }
-.iconseditarbtn{
-    margin-right: 6px;
-    margin-top: -5px;
+.datos span {
+  border: none;
+  background-color: rgb(218, 218, 218);
 }
-.datos button{
-    margin-bottom: 20px;
+.iconseditarbtn {
+  margin-right: 6px;
+  margin-top: -5px;
 }
-#formularioEditContra .modal-body{
-    padding-left:72px;
- }
-#formularioEditContra input{
-   max-width: 310px;
+.datos button {
+  margin-bottom: 20px;
 }
-#formularioEditContra p{
-    margin-bottom: 5px;
+#formularioEditContra .modal-body {
+  padding-left: 72px;
 }
-#formularioEditContra .input-group{
-    margin-bottom: 12px;
+#formularioEditContra input {
+  max-width: 310px;
 }
-.btneditar{
-    margin-left: 60px;
-    margin-top: 20px;
+#formularioEditContra p {
+  margin-bottom: 5px;
 }
-.btneditarder{
-    margin-left: 10px;
-    margin-top: 20px;
+#formularioEditContra .input-group {
+  margin-bottom: 12px;
 }
-.PageNotFound img{
-    height: 400px;
-   margin: auto;
+.btneditar {
+  margin-left: 60px;
+  margin-top: 20px;
 }
-.PageNotFound h1{
-    color:#396280;
+.btneditarder {
+  margin-left: 10px;
+  margin-top: 20px;
 }
-
-
+.PageNotFound img {
+  height: 400px;
+  margin: auto;
+}
+.PageNotFound h1 {
+  color: #396280;
+}
+.dropdown {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  display: inline;
+}
+#btnActualizarPerfil {
+  margin-left: 210px;
+  margin-top: 20px;
+}
+#mensajePerfil {
+  width: 350px;
+  margin-top: 20px;
+  text-align: center;
+}
