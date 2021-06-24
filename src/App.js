@@ -5,14 +5,18 @@ import Perfil from'./vistas/perfilusuario';
 import Header from'./componentes/header';
 import Footer from'./componentes/footer';
 import PageNotFound from './vistas/PageNotFound';
+import recuperarPassword from './vistas/recuperarPassword';
+import Publicaciones from '../src/vistas/publicaciones'
+import NPost from '../src/vistas/nuevoPost'
+
 import './css/styles.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-import { useLocalStorage } from './useLocalStorage';
-import { useEffect } from 'react';
+
+
 
 export default function App() {
   return (
@@ -22,7 +26,10 @@ export default function App() {
         <Switch>
           <Route path="/Registro" component={Registro}/>
           <Route path="/Login" component={Login}/>
+          <Route path="/Publicaciones" component={Publicaciones}/>
+          <Route path="/NuevoPost" component={NPost}/>
           <Route path="/Perfil" component={Perfil}/>
+          <Route path="/Recuperar" component={recuperarPassword}/>
           <Route path="/" component={Inicio} exact/>
           <Route path="*" component={PageNotFound}/>         
         </Switch>

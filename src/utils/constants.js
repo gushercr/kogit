@@ -1,0 +1,1 @@
+export const URL_KOGIT="https://kogit2.herokuapp.com/";

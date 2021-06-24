@@ -2,7 +2,7 @@ import { Redirect } from "react-router";
 import { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import { useLocalStorage } from '../useLocalStorage';
-
+import {URL_KOGIT} from "../utils/constants";
     export default function Login(){ 
       const [token,saveToken]=useLocalStorage('token','');
       const [usuario,setUsuario]=useState('');
@@ -27,7 +27,8 @@ import { useLocalStorage } from '../useLocalStorage';
           body: urlencoded,
           redirect: 'follow'
         };
-        const resultado=await fetch("https://kogit.herokuapp.com/session/login", requestOptions)
+        const url=`${URL_KOGIT}session/login`;
+        const resultado=await fetch(url, requestOptions)
           .then(response => response.json())
           .then(result => result)
           .catch(error => console.log('error', error));
@@ -67,6 +68,7 @@ import { useLocalStorage } from '../useLocalStorage';
                 </div>
               </form>
             <Link className="link-primary text-center" to="/Registro">¿No tienes una cuenta?, haz click aquí</Link>
+            <Link className="link-danger text-center" to="/Recuperar">Olvide mi contraseña</Link>
             {alert&&<div><p className={className}>{mensaje}</p></div>}
         </div>
       </div>
