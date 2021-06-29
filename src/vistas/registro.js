@@ -11,7 +11,7 @@ export default class registro extends Component{
     message:'',
     alert:false,
     class:'',
-    preguntas:[{pregunta:"Nombre?"},{pregunta:"comida favorita?"}],
+    preguntas:[{pregunta:"¿Nombre de mi primer mascota?"},{pregunta:"¿Comida favorita?"},{pregunta:"¿Cancion favorita?"},{pregunta:"¿Fecha de cumpleaños?"}],
     pregunta:'',
     respuesta:'',
     agree:false,

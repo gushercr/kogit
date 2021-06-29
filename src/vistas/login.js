@@ -58,9 +58,9 @@ import {URL_KOGIT} from "../utils/constants";
               <form onSubmit={onSubmit}>
                 <div className="inputs">
                     <p >Usuario</p>
-                    <input type="text" className="form-control" placeholder="Ingresa tu usuario"  onChange={e=>setUsuario(e.target.value)} value={usuario}/><br/>
+                    <input type="text" className="form-control" placeholder="Ingresa tu usuario"  onChange={e=>setUsuario(e.target.value)} value={usuario} required/><br/>
                     <p>Contraseña</p>
-                    <input type="password" className="form-control" placeholder="Ingresa tu contraseña"  onChange={e=>setPassword(e.target.value)} value={password}/> 
+                    <input type="password" className="form-control" placeholder="Ingresa tu contraseña"  onChange={e=>setPassword(e.target.value)} value={password} required/> 
                 </div>
                 <div className="divbotones">
                     <input type="submit" className="btnlogin btn btn-primary " value="Iniciar sesion" />  

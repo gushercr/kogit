@@ -54,8 +54,8 @@ export default function Header() {
             </div>
             <div className="direccionesHeader">
                 <div className={logueado}>
-                    <a href="/Publicaciones" >Publicaciones</a>
-                    <a href="#" >Repositorios</a>
+                    <a href="#" >Publicaciones</a>
+                    <a href="/Publicaciones" >Repositorios</a>
                 </div>
                 
             </div>
