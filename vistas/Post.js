@@ -42,11 +42,12 @@ export default function NuevoPost(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [change, stateChange] = React.useState(true);
   const [dialogOpen, setDialogOpen] = React.useState(false);
-  const lenguajes = [ 'Java', 'PHP', 'C#', 'Javascript', 'C++', 'Phyton', 'Otro'];
+  const lenguajes = [ 'java', 'php', 'c#', 'c++', 'javascript', 'phyton', 'otro'];
   const uid = props.location.state
 
   const [token,saveToken] = useLocalStorage('token','');
-  const [userUid,saveUserUid]=useLocalStorage('uid','');
+  const [userUid,saveUserUid]= useLocalStorage('uid','');
+  const [autorUid,saveAutorUid]= useState('');
   const [access,stateAccess] = React.useState();
   const [posts,savePosts] = React.useState([]);
   const [tries,setTries]= React.useState(0);
@@ -63,7 +64,8 @@ export default function NuevoPost(props) {
     setNewTitulo(a.titulo)
     setNewLenguaje(a.lenguaje)
     setNewTags(a.tags)
-    setLike(a.me_gusta)    
+    setLike(a.me_gusta)
+    saveAutorUid(a.autor._id)    
     savePosts(a)
   }
 
@@ -216,17 +218,18 @@ export default function NuevoPost(props) {
 
           {change ? (
             <Grid container direction="row" alignItems="center" justify="space-between" >
-              <IconButton href="Publicaciones" color="primary"> <ArrowBackIcon /> </IconButton>
+              <IconButton onClick={() => history.goBack()} color="primary"> <ArrowBackIcon /> </IconButton>
               <IconButton onClick={handleOpenMenu}> <MoreIcon /> </IconButton>
                 <Menu keepMounted anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleCloseMenu}>
-                  {uid==userUid ? (
-                    <Grid>
-                      <MenuItem disabled onClick={handleChangeEdit}> uwu </MenuItem>
-                    </Grid>
-                  ) : (
+                  { autorUid != userUid ? (
                     <Grid>
                       <MenuItem onClick={handleChangeEdit}>Editar</MenuItem>
                       <MenuItem onClick={handleDelete}>Eliminar</MenuItem>
+                    </Grid>
+                  ) : (
+                    <Grid>
+                      <MenuItem disabled >Editar</MenuItem>
+                      <MenuItem disabled >Eliminar</MenuItem>
                     </Grid>
                   )}
                 </Menu>

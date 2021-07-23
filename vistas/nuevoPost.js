@@ -25,7 +25,7 @@ import CancelIcon from "@material-ui/icons/Cancel";
 export default function NuevoPost() {
   const classes = useStyles();
   const history = useHistory();
-  const lenguajes = [ 'Java', 'PHP', 'C#', 'Javascript', 'C++', 'Phyton', 'Otro'];
+  const lenguajes = [ 'java', 'php', 'c#', 'c++', 'javascript', 'phyton', 'otro'];
   const [lenguajeSelect, setLenguajeSelect] = React.useState([]);
   
   const [token,saveToken]=useLocalStorage('token','');
