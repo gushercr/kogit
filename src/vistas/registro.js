@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import { Component } from 'react';
-
+import {URL_KOGIT} from "../utils/constants";
 export default class registro extends Component{
   state={
     nombre:'',
@@ -11,7 +11,7 @@ export default class registro extends Component{
     message:'',
     alert:false,
     class:'',
-    preguntas:[{pregunta:"Nombre?"},{pregunta:"comida favorita?"}],
+    preguntas:[{pregunta:"¿Nombre de mi primer mascota?"},{pregunta:"¿Comida favorita?"},{pregunta:"¿Cancion favorita?"},{pregunta:"¿Fecha de cumpleaños?"}],
     pregunta:'',
     respuesta:'',
     agree:false,
@@ -38,8 +38,8 @@ export default class registro extends Component{
       body: urlencoded,
       redirect: 'follow'
     };
-    
-    const res=await fetch("https://kogit.herokuapp.com/session/signup", requestOptions)
+    const url=`${URL_KOGIT}session/signup`
+    const res=await fetch(url, requestOptions)
       .then(response =>response.json())
       .then(result=>result) 
       .catch(error => console.log('error', error));

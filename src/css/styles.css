@@ -97,6 +97,7 @@
 #login {
   margin: auto;
   width: 310px;
+  min-height: 290px;
   padding-top: 10px;
 }
 .inputs input {
@@ -167,8 +168,11 @@
 }
 .imguser {
   max-height: 200px;
+  max-width: 200px;
+  height: 200px;
   width: 200px;
   margin-top: 20px;
+  overflow: hidden;
 }
 .editarimg {
   position: relative;
@@ -258,4 +262,34 @@
   width: 350px;
   margin-top: 20px;
   text-align: center;
+}
+#formularioImagen input[type="submit"] {
+  margin-top: 15px;
+  margin-right: 6px;
+}
+#formularioImagen button {
+  margin-top: 15px;
+  margin-left: 6px;
+}
+.spinner-border {
+  min-width: 6rem;
+  min-height: 6rem;
+  position: fixed;
+  top: 240px;
+  z-index: 1;
+  font-weight: 100;
+}
+.btnCancelarR {
+  margin-left: 8px;
+  width: 115px;
+}
+#FormRecuperar {
+  margin-top: 30px;
+  margin-bottom: 70px;
+}
+#CardRecuperar {
+  margin: auto;
+  width: 310px;
+  min-height: 290px;
+  padding-top: 10px;
 }

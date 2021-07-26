@@ -1,9 +1,9 @@
 import imgusuario from "./../multimedia/usuarios/imguserprueba.jpg";
 import { PencilSquare,PersonFill,GeoAltFill,Twitter,Type,Globe,ShopWindow,Clipboard,KeyFill,ShieldLockFill } from 'react-bootstrap-icons';
 import { useLocalStorage } from "../useLocalStorage";
-import { useState,useEffect,useRedirect } from "react";
+import { useState,useEffect } from "react";
 import { Redirect } from "react-router";
-
+import {URL_KOGIT} from "../utils/constants";
 export default function Perfil() {
     const [token,saveToken]=useLocalStorage('token','');
     const [uid,saveUid]=useLocalStorage('uid','');
@@ -16,6 +16,8 @@ export default function Perfil() {
     const [alert,stateAlert]=useState(false);
     const [activeEdit,stateActive]=useState(false);
     const [newDates,setNewDates]=useState({username:'',nombre:'',ubicacion:'',company:'',website:'',twitter:''});
+    const [mensajeArchivo, setMensajeArchivo] = useState({mensaje:'',type:'',btnDisable:false,image:null});
+    const [isLoad, setisLoad] = useState(true);
 
      useEffect(()=>{
         if (token=='') {
@@ -29,7 +31,8 @@ export default function Perfil() {
             headers: myHeaders,
             redirect: 'follow'
           };
-           fetch("https://kogit.herokuapp.com/usuarios/perfil/"+uid, requestOptions)
+          const url=`${URL_KOGIT}usuarios/perfil/`
+           fetch(url+uid, requestOptions)
             .then(response => response.json())
             .then(result => saveDatos(result.usuario))
         }
@@ -38,6 +41,7 @@ export default function Perfil() {
     var saveDatos=(a)=>{
       saveUser(a);
       setNewDates(a);
+      setisLoad(false);
     }
     var onSubmit=async e=>{
       e.preventDefault();
@@ -58,8 +62,8 @@ export default function Perfil() {
           body: urlencoded,
           redirect: 'follow'
         };
-
-        fetch("https://kogit.herokuapp.com/usuarios/update/password", requestOptions)
+        const url=`${URL_KOGIT}usuarios/update/password`;
+        fetch(url, requestOptions)
           .then(response => response.json())
           .then(resultado => resultado.ok==true?setMensaje('Cambios guardados'):setMensaje('Contraseña incorrecta'))
           .catch(error => console.log('error', error));
@@ -70,6 +74,7 @@ export default function Perfil() {
     }
     var actualizar=async e=>{
       e.preventDefault();
+      setisLoad(true);
       var myHeaders = new Headers();
       myHeaders.append("token", token);
 
@@ -86,24 +91,55 @@ export default function Perfil() {
         body: urlencoded,
         redirect: 'follow'
       };
-
-      fetch("https://kogit.herokuapp.com/usuarios/update/miperfil", requestOptions)
+      const url=`${URL_KOGIT}usuarios/update/miperfil`;
+      fetch(url, requestOptions)
         .then(response => response.json())
-        .then(result => console.log(result))
+        .then(result => setisLoad(false))
         .catch(error => console.log('error', error));
       setTimeout(() => {
          window.location.replace('')
       }, 3000);      
     }
+    const validarImg=async e=>{
+      if (e[0].type=="image/png"||e[0].type=="image/jpeg") {
+        setMensajeArchivo({...mensajeArchivo,mensaje:'Listo',type:'text-success',btnDisable:false,image:e[0]})
+      }else{
+        setMensajeArchivo({...mensajeArchivo,mensaje:'Formato no admitido',type:'text-danger',btnDisable:true})
+      }
+    }
+    var onSubmitImage=async e=>{
+      e.preventDefault();
+      var myHeaders = new Headers();
+      myHeaders.append("token",token);
+
+      var formdata = new FormData();
+      formdata.append("archivo", mensajeArchivo.image, mensajeArchivo.name);
+
+      var requestOptions = {
+        method: 'PUT',
+        headers: myHeaders,
+        body: formdata,
+        redirect: 'follow'
+      };
+      const url=`${URL_KOGIT}usuarios/update/imagen`
+      fetch(url, requestOptions)
+        .then(response => response.text())
+        .then(result => setTimeout(()=>{window.location.replace('')},3000))
+        .catch(error => console.log('error', error));
+        
+    }
     return (
       <div className="container" id="perfil">
         {token==false?<Redirect to="/Login"/>:null}
-       
+        <div className="text-center">
+          {isLoad&&<div className="spinner-border text-primary" role="status"><span className="visually-hidden">Loading...</span></div>}
+        </div>
+        
         <div className="row">
           <div className="col-3">
             <div className="col-12">
-              <img src={imgusuario} className="imguser rounded-circle mx-auto d-block"/>
-              <PencilSquare  size="36" className="mx-auto d-block editarimg"/>              
+              <img src={user.hasOwnProperty('imgURL')?user.imgURL:imgusuario} className="imguser rounded-circle mx-auto d-block"/>
+              <PencilSquare  size="36" className="mx-auto d-block editarimg" data-bs-toggle="modal" data-bs-target="#formularioImagen"/>              
               <h3 className="text-center">{user.username}</h3>
             </div>
           </div>
@@ -165,22 +201,42 @@ export default function Perfil() {
                     <p>Contraseña</p>
                     <div class="input-group">
                         <span class="input-group-text"><KeyFill className="" color="#00000" size={18}/></span>
-                        <input type="text" value={passwordInput} onChange={e=>savePassword(e.target.value)} class="form-control" placeholder="Contraseña actual" />
+                        <input type="password" value={passwordInput} onChange={e=>savePassword(e.target.value)} class="form-control" placeholder="Contraseña actual" />
                     </div>
                     <p>Nueva contraseña</p>
                     <div class="input-group">
                         <span class="input-group-text"><KeyFill className="" color="#00000" size={18}/></span>
-                        <input type="text" value={newPassword} onChange={e=>setNewPassword(e.target.value)} class="form-control" placeholder="Nueva contraseña" />
+                        <input type="password" value={newPassword} onChange={e=>setNewPassword(e.target.value)} class="form-control" placeholder="Nueva contraseña" />
                     </div>
                     <p>Confirmar contraseña</p>
                     <div class="input-group">
                         <span class="input-group-text"><KeyFill className="" color="#00000" size={18}/></span>
-                        <input type="text" value={newPasswordConfirm} onChange={e=>setNewPasswordConfirm(e.target.value)} class="form-control" placeholder="confirma la nueva contraseña" />
+                        <input type="password" value={newPasswordConfirm} onChange={e=>setNewPasswordConfirm(e.target.value)} class="form-control" placeholder="confirma la nueva contraseña" />
                     </div>
                     <input type="submit" className="btn btn-primary btneditar" value="Guardar"/>
                     <button className="btn btn-danger btneditar" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
                 </form>
                 {alert&&<div className="alert alert-primary" id="mensajePerfil">{mensaje}</div>}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="formularioImagen" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="text-center">Selecciona una imagen</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form className="text-center" onSubmit={onSubmitImage}>
+                  <p className="text-primary text-center">Nota: Solo se aceptan archivos en JPEG/PNG</p>
+                    <input type="file" onChange={(e)=>validarImg(e.target.files)} className="form-control" required/>
+                    <p className={mensajeArchivo.type}>{mensajeArchivo.mensaje}</p>
+                    <input type="submit" className="btn btn-primary" value="Guardar" disabled={mensajeArchivo.btnDisable}/>
+                    <button className="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+                </form>
+                
               </div>
             </div>
           </div>
