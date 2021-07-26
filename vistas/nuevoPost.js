@@ -25,7 +25,6 @@ import CancelIcon from "@material-ui/icons/Cancel";
 export default function NuevoPost() {
   const classes = useStyles();
   const history = useHistory();
-  const lenguajes = [ 'java', 'php', 'c#', 'c++', 'javascript', 'phyton', 'otro'];
   const [lenguajeSelect, setLenguajeSelect] = React.useState([]);
   
   const [token,saveToken]=useLocalStorage('token','');
@@ -97,9 +96,21 @@ export default function NuevoPost() {
                     onChange={handleSelect}
                     error={data.lenguaje == '' && tries >= 1 ? (true):(false) }
                   >
-                    {lenguajes.map((lenguaje) => (
-                      <MenuItem key={lenguaje} value={lenguaje}> {lenguaje} </MenuItem>
-                    ))}
+                    <MenuItem value={'c'}>C</MenuItem>
+                    <MenuItem value={'c++'}>C++</MenuItem>
+                    <MenuItem value={'c#'}>C#</MenuItem>
+                    <MenuItem value={'fortran'}>Fortran</MenuItem>
+                    <MenuItem value={'go'}>Go</MenuItem>
+                    <MenuItem value={'java'}>Java</MenuItem>
+                    <MenuItem value={'javascript'}>Javascript</MenuItem>
+                    <MenuItem value={'kotlin'}>Kotlin</MenuItem>
+                    <MenuItem value={'php'}>Php</MenuItem>
+                    <MenuItem value={'python'}>Python</MenuItem>
+                    <MenuItem value={'r'}>R</MenuItem>
+                    <MenuItem value={'ruby'}>Ruby</MenuItem>
+                    <MenuItem value={'ruby-on-rails'}>Ruby on rails</MenuItem>
+                    <MenuItem value={'swift'}>Swift</MenuItem>
+                    <MenuItem value={'typescript'}>TypeScript</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>
