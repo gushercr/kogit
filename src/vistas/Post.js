@@ -42,7 +42,6 @@ export default function NuevoPost(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [change, stateChange] = React.useState(true);
   const [dialogOpen, setDialogOpen] = React.useState(false);
-  const lenguajes = [ 'java', 'php', 'c#', 'c++', 'javascript', 'phyton', 'otro'];
   const uid = props.location.state
 
   const [token,saveToken] = useLocalStorage('token','');
@@ -221,7 +220,7 @@ export default function NuevoPost(props) {
               <IconButton onClick={() => history.goBack()} color="primary"> <ArrowBackIcon /> </IconButton>
               <IconButton onClick={handleOpenMenu}> <MoreIcon /> </IconButton>
                 <Menu keepMounted anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleCloseMenu}>
-                  { autorUid != userUid ? (
+                  { autorUid == userUid ? (
                     <Grid>
                       <MenuItem onClick={handleChangeEdit}>Editar</MenuItem>
                       <MenuItem onClick={handleDelete}>Eliminar</MenuItem>
@@ -294,11 +293,23 @@ export default function NuevoPost(props) {
                 <Select
                   value={newLenguaje}
                   onChange={handleSelect}
-                  error={newTags == '' && tries >= 1 ? (true):(false) }
+                  error={newLenguaje == '' && tries >= 1 ? (true):(false) }
                 >
-                  {lenguajes.map((lenguaje) => (
-                    <MenuItem key={lenguaje} value={lenguaje}> {lenguaje} </MenuItem>
-                  ))}
+                  <MenuItem value={'c'}>C</MenuItem>
+                  <MenuItem value={'c++'}>C++</MenuItem>
+                  <MenuItem value={'c#'}>C#</MenuItem>
+                  <MenuItem value={'fortran'}>Fortran</MenuItem>
+                  <MenuItem value={'go'}>Go</MenuItem>
+                  <MenuItem value={'java'}>Java</MenuItem>
+                  <MenuItem value={'javascript'}>Javascript</MenuItem>
+                  <MenuItem value={'kotlin'}>Kotlin</MenuItem>
+                  <MenuItem value={'php'}>Php</MenuItem>
+                  <MenuItem value={'python'}>Python</MenuItem>
+                  <MenuItem value={'r'}>R</MenuItem>
+                  <MenuItem value={'ruby'}>Ruby</MenuItem>
+                  <MenuItem value={'ruby-on-rails'}>Ruby on rails</MenuItem>
+                  <MenuItem value={'swift'}>Swift</MenuItem>
+                  <MenuItem value={'typescript'}>TypeScript</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
