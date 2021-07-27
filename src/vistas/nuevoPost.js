@@ -120,7 +120,7 @@ export default function NuevoPost() {
                   label="Tags" 
                   variant="filled"
                   error={(data.tags.length < 3 || data.tags.length > 4) && tries >= 1 ? (true):(false) }
-                  helperText="Separa los Tags por comas" 
+                  helperText="Separa mínimo 3, y máximo 4 tags por comas" 
                   className={classes.form} 
                   onChange={e=>setData({...data, tags:(e.target.value).split(',')})} 
                 />
