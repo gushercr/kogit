@@ -272,7 +272,7 @@ export default function NuevoPost(props) {
               ) : (
                 <TextField 
                   variant="outlined"
-                  helperText="Separa los Tags por comas"
+                  helperText="Separa mínimo 3, y máximo 4 tags por comas"
                   value={(JSON.stringify(newTags)).replace(/['"]+/g, '').slice(1, -1)}
                   error={(newTags.length < 3 || newTags.length > 4) && tries >= 1 ? (true):(false) }
                   onChange={e=>setNewTags((e.target.value).split(','))} 
