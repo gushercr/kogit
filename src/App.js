@@ -10,6 +10,7 @@ import Publicaciones from '../src/vistas/publicaciones'
 import NPost from '../src/vistas/nuevoPost'
 import Post from './vistas/Post';
 import RecuperarPasswordEmail from './vistas/recuperarPasswordEmail';
+// import name from './vistas/resultBusquda';
 import './css/styles.css';
 import {
   BrowserRouter as Router,
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/Publicaciones" component={Publicaciones}/>
           <Route path="/NuevoPost" component={NPost}/>
           <Route path="/Perfil" component={Perfil}/>
+          {/* <Route path="/ResultBusqueda" component={Perfil}/> */}
           <Route path="/Recuperar?key=:key" component={RecuperarPasswordEmail}/>
           <Route path="/Recuperar" component={recuperarPassword}/>
           <Route path="/Post" component={Post}/>
