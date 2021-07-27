@@ -9,6 +9,7 @@ import recuperarPassword from './vistas/recuperarPassword';
 import Publicaciones from '../src/vistas/publicaciones'
 import NPost from '../src/vistas/nuevoPost'
 import Post from './vistas/Post';
+import ResultBusqueda from './vistas/resultBusquda';
 import RecuperarPasswordEmail from './vistas/recuperarPasswordEmail';
 import './css/styles.css';
 import {
@@ -29,12 +30,13 @@ export default function App() {
         <Switch>
           <Route path="/Registro" component={Registro}/>
           <Route path="/Login" component={Login}/>
-          <Route path="/Publicaciones" component={Publicaciones}/>
-          <Route path="/NuevoPost" component={NPost}/>
           <Route path="/Perfil" component={Perfil}/>
           <Route path="/Recuperar?key=:key" component={RecuperarPasswordEmail}/>
           <Route path="/Recuperar" component={recuperarPassword}/>
+          <Route path="/Publicaciones" component={Publicaciones}/>
           <Route path="/Post" component={Post}/>
+          <Route path="/NuevoPost" component={NPost}/>
+          <Route path="/ResultBusqueda" component={ResultBusqueda}/>
           <Route path="/" component={Inicio} exact/>
           <Route path="*" component={PageNotFound}/>         
         </Switch>
