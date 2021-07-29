@@ -24,7 +24,6 @@ import CancelIcon from "@material-ui/icons/Cancel";
 export default function NuevoPost() {
   const classes = useStyles();
   const history = useHistory();
-  const lenguajes = [ 'Java', 'PHP', 'C#', 'Javascript', 'C++', 'Phyton', 'Otro'];
   const [lenguajeSelect, setLenguajeSelect] = React.useState([]);
   
   const [token,saveToken]=useLocalStorage('token','');
@@ -96,9 +95,21 @@ export default function NuevoPost() {
                     onChange={handleSelect}
                     error={data.lenguaje == '' && tries >= 1 ? (true):(false) }
                   >
-                    {lenguajes.map((lenguaje) => (
-                      <MenuItem key={lenguaje} value={lenguaje}> {lenguaje} </MenuItem>
-                    ))}
+                    <MenuItem value={'c'}>C</MenuItem>
+                    <MenuItem value={'c++'}>C++</MenuItem>
+                    <MenuItem value={'c#'}>C#</MenuItem>
+                    <MenuItem value={'fortran'}>Fortran</MenuItem>
+                    <MenuItem value={'go'}>Go</MenuItem>
+                    <MenuItem value={'java'}>Java</MenuItem>
+                    <MenuItem value={'javascript'}>Javascript</MenuItem>
+                    <MenuItem value={'kotlin'}>Kotlin</MenuItem>
+                    <MenuItem value={'php'}>Php</MenuItem>
+                    <MenuItem value={'python'}>Python</MenuItem>
+                    <MenuItem value={'r'}>R</MenuItem>
+                    <MenuItem value={'ruby'}>Ruby</MenuItem>
+                    <MenuItem value={'ruby-on-rails'}>Ruby on rails</MenuItem>
+                    <MenuItem value={'swift'}>Swift</MenuItem>
+                    <MenuItem value={'typescript'}>TypeScript</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>
@@ -108,7 +119,7 @@ export default function NuevoPost() {
                   label="Tags" 
                   variant="filled"
                   error={(data.tags.length < 3 || data.tags.length > 4) && tries >= 1 ? (true):(false) }
-                  helperText="Separa los Tags por comas, ingresa como minimo 3 tags" 
+                  helperText="Separa mínimo 3, y máximo 4 tags por comas" 
                   className={classes.form} 
                   onChange={e=>setData({...data, tags:(e.target.value).split(',')})} 
                 />
