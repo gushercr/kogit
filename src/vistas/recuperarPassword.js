@@ -123,7 +123,7 @@ export default function RecuperarPassword () {
         const url=`${URL_KOGIT}recovery/enviarEmail/${DatosRestaurar.uid}`
         fetch(url, requestOptions)
         .then(response => response.json())
-        .then(result => console.log(result))
+        .then(result => console.log("ok"))
         .catch(error => console.log('error', error));
     }
     const [numItem, setnumItem] = useState(1);
@@ -141,7 +141,7 @@ export default function RecuperarPassword () {
                             </div>
                             <div className="divbotones">
                                 <input type="submit" className="btnlogin btn btn-primary " value="Verificar" />  
-                                <button className="btn btn-outline-danger btnCancelarR">Cancelar</button>
+                                <a className="btn btn-outline-danger btnCancelarR" href="/">Cancelar</a>
                             </div>
                             
                         </form>

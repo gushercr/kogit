@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import { Component } from 'react';
+import { Component,useState } from 'react';
 import {URL_KOGIT} from "../utils/constants";
 export default class registro extends Component{
   state={
@@ -16,7 +16,8 @@ export default class registro extends Component{
     respuesta:'',
     agree:false,
     infoinput:'',
-    info:false
+    info:false,
+    loading:false
 
   }
   onSubmit=async e=>{
@@ -39,6 +40,7 @@ export default class registro extends Component{
       redirect: 'follow'
     };
     const url=`${URL_KOGIT}session/signup`
+    this.setState({loading:true})
     const res=await fetch(url, requestOptions)
       .then(response =>response.json())
       .then(result=>result) 
@@ -52,6 +54,7 @@ export default class registro extends Component{
         this.props.history.push('/Login')
       }, 5000);
     }else{
+      this.setState({loading:false})
         const errors=res.errors;
         let mensajes=[{}];
         for (const numobj in errors) {
@@ -66,7 +69,9 @@ export default class registro extends Component{
     return (
       
       <div className="container" id="logincontainer">
+         
         <div className="card" id="cardregistro">
+        {this.state.loading&&<div className="spinner-border text-primary" style={{display:"flex", left:"46%",top:"40%"}} role="status"><span className="visually-hidden">Loading...</span></div>}
             <p className="font-monospace text-center text-muted">Unete a KOgit</p>
             <h3 className="text-center">Crea tu cuenta</h3><br/>
             {/* Inicia el formulario de registro */}
