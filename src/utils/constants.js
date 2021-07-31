@@ -1,2 +1,2 @@
 export const URL_KOGIT="https://kogit2.herokuapp.com/";
-export const URL_RESTABLECER="http://localhost:3000/Recuperar";
+export const URL_RESTABLECER="https://kogit-proyect.herokuapp.com/Recuperar";
