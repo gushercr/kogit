@@ -36,7 +36,7 @@
   outline: none;
 }
 .centrar {
-  padding-left: 180px;
+  margin: auto;
 }
 .search {
   margin-bottom: 6px;

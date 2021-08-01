@@ -23,6 +23,10 @@ import FormLabel from '@material-ui/core/FormLabel';
 
 import FilterIcon from '@material-ui/icons/FilterList';
 import SearchIcon from '@material-ui/icons/Search';
+import MenuIcon from '@material-ui/icons/Menu';
+import PersonIcon from '@material-ui/icons/Person';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import HomeIcon from '@material-ui/icons/Home';
 
 export default function Header() {
     const [token,saveToken]=useLocalStorage('token','');
@@ -35,6 +39,9 @@ export default function Header() {
     const [Dialogopen, setDialogOpen] = useState(false);
     const [searchOP, setSearchcOP] = useState('tags');
     const [valueSearch, setValueSearch] = useState('');
+
+    //responsivo
+    const [viewMenu, setViewMenu] = useState(false);
 
     useEffect(()=>{
         if (token!='') {
@@ -51,6 +58,7 @@ export default function Header() {
     }
 
     const seeMoreSubmit = () => {
+        setViewMenu(false)
         var path = {
           pathname: '/ResultBusqueda',
           search: valueSearch,
@@ -67,33 +75,34 @@ export default function Header() {
     return (
         <div className="header">
             <div className="row align-items-center">
-                <div className="col-2">
+                <div className="d-none d-sm-block col-xl-2">
                     <Link to="/"><img className="logo" src={Logo} /></Link>
+                </div>               
+                <div className="col-1 d-block d-sm-none" >
+                    <IconButton onClick={()=>setViewMenu(!viewMenu)}> <MenuIcon style={{color:"#000"}}/> </IconButton>
                 </div>
-
                 {/* barra de busqueda */}
-                <div className="col-7">
-                    <div className="centrar">
-                        <div className={classes.search}>
+                <div className="col-11 offset-xl-1 col-xl-6" style={{paddingLeft:0}}>
+                    <div className="row justify-content-center m-1">
                             <InputBase
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    <IconButton type="submit" onClick={handleDialogOpen}> <FilterIcon style={{color:"#fff"}}/> </IconButton>
+                                </InputAdornment> }
                             placeholder="Buscar"
                             classes={{ input: classes.inputInput }}
                             onChange={e=> setValueSearch(e.target.value)}
-                            startAdornment={
-                                <InputAdornment position="start">
-                                    <IconButton type="submit" onClick={handleDialogOpen}> <FilterIcon /> </IconButton>
-                                </InputAdornment> }
                             endAdornment={
                                 <InputAdornment position="end">
-                                    <IconButton type="submit" onClick={seeMoreSubmit}> <SearchIcon /> </IconButton>
+                                    <IconButton type="submit" onClick={seeMoreSubmit}> <SearchIcon style={{color:"#fff"}}/> </IconButton>
                                 </InputAdornment> }
                             />
-                        </div>
+                        
                     </div>
                 </div>
 
                 {/* Botones de logueo */}
-                <div className="col-3">
+                <div className="d-none d-sm-block col-xl-3">
                     <div className={logueado}>
                         <Link className="btn bt text-light fs-5 " to="/Perfil">Mi perfil</Link>
                         <div className="dropdown">
@@ -112,6 +121,44 @@ export default function Header() {
                         
                 </div>
             </div>
+            {/* inicia el menu para movil */}
+            {viewMenu?(
+            <div className="col-8 d-block d-sm-none" style={{backgroundColor:"#fff",position:"fixed",zIndex:5}}>
+                <Link to="/" style={{textDecoration:"none"}}>
+                <div className="row" style={{paddingTop:9,paddingLeft:10,paddingRight:20}} onClick={()=>setViewMenu(!viewMenu)}>
+                    <div className="col-10">
+                        <p className="text-dark">Inicio </p>
+                    </div>
+                    <div className="col-2">
+                        <HomeIcon style={{color:"#000"}}/>
+                    </div>                        
+                </div>
+                </Link>
+                <div className={clase}>
+                    <Link to="/Login" style={{textDecoration:"none"}}>
+                    <div className="row" style={{paddingTop:9,paddingLeft:10,paddingRight:20}} onClick={()=>setViewMenu(!viewMenu)}>
+                        <div className="col-10">
+                            <p className="text-dark">Iniciar sesion </p>
+                        </div>
+                        <div className="col-2">
+                            <PersonIcon style={{color:"#000"}}/>
+                        </div>                        
+                    </div>
+                    </Link>
+                    <Link to="/Registro" style={{textDecoration:"none"}}>
+                    <div className="row" style={{paddingTop:9,paddingLeft:10,paddingRight:20}} onClick={()=>setViewMenu(!viewMenu)}>
+                        <div className="col-10">
+                            <p className="text-dark">Crear cuenta </p>
+                        </div>
+                        <div className="col-2">
+                            <PersonAddIcon style={{color:"#000"}}/>
+                        </div>                        
+                    </div>
+                    </Link>
+                </div>               
+                
+            </div>):null}
+            {/* termina el menu para movil */}
             <div className="direccionesHeader">
                 <div className={logueado}>
                     <a href="/Publicaciones" >Publicaciones</a>
@@ -119,7 +166,8 @@ export default function Header() {
                 </div>
                 
             </div>
-
+            
+            
             <Dialog open={Dialogopen} onClose={handleDialogClose}>
                 <DialogTitle id="form-dialog-title">Búsqueda Avanzada</DialogTitle>
                 <DialogContent>
@@ -143,8 +191,7 @@ export default function Header() {
 
 const useStyles = makeStyles((theme) => ({
     search: {
-        width: '76%',
-        position: 'relative',
+        width: '80%',
         borderRadius: theme.shape.borderRadius,
         marginRight: theme.spacing(2),
         marginLeft: theme.spacing(2),
@@ -152,8 +199,10 @@ const useStyles = makeStyles((theme) => ({
         '&:hover': { backgroundColor: fade(theme.palette.common.white, 0.25) },
     },
     inputInput: {
-        width: '37ch',
-        padding: theme.spacing(1, 1, 1, 0),
+        width: '100%',
+        padding: theme.spacing(1, 1, 1, 2),
         transition: theme.transitions.create('width'),
+        backgroundColor: fade(theme.palette.common.white, 0.15),
+        '&:hover': { backgroundColor: fade(theme.palette.common.white, 0.25) },
     },
   }));
