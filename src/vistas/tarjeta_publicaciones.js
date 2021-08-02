@@ -8,10 +8,12 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Divider from '@material-ui/core/Divider';
 import Chip from '@material-ui/core/Chip';
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+
+import Favorite from "@material-ui/icons/Favorite";
+import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 
 import { useHistory } from "react-router-dom";
-import { Router, Route, hashHistory} from 'react-router';
-import { useLocalStorage } from "../useLocalStorage";
 
 const Tarjeta = (props) => {
   const classes = useStyles();
@@ -19,18 +21,14 @@ const Tarjeta = (props) => {
   const fecha = new Date(props.fecha)
   const texto = (props.texto).substring(0, 300) + "...";
 
-  const [token,saveToken]=useLocalStorage('token','');
-
   const seeMoreSubmit = () => {
-    var id = props.id
+    //var id = props.id
     //var path = `/Post/${id}`;
     var path = {
       pathname: '/Post',
       state: props.id,
     }
-    console.log(path);
     history.push(path);
-    //history.push('/Post/' + props.id)
   }
 
   return (
@@ -68,6 +66,13 @@ const Tarjeta = (props) => {
       </CardContent>
       <CardActions justify="space-between" style={{ paddingLeft: 20, paddingRight: 30 }} >
         <Button size="small" color="primary" onClick={seeMoreSubmit} >Ver Más</Button>
+        <FormControlLabel
+          style={{ marginLeft: 'auto' }}
+          label={props.likes}
+          labelPlacement='start'
+          disabled
+          control={ <Favorite style={{ color:'#A9A9A9' }} fontSize="small" /> }
+        />
       </CardActions>        
     </Card>
   );
