@@ -39,24 +39,25 @@ import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 export default function NuevoPost(props) {
   const classes = useStyles();
   const history = useHistory();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [change, stateChange] = React.useState(true);
-  const [dialogOpen, setDialogOpen] = React.useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [change, stateChange] = useState(true);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const uid = props.location.state
 
   const [token,saveToken] = useLocalStorage('token','');
   const [userUid,saveUserUid]= useLocalStorage('uid','');
   const [autorUid,saveAutorUid]= useState('');
-  const [access,stateAccess] = React.useState();
-  const [posts,savePosts] = React.useState([]);
-  const [tries,setTries]= React.useState(0);
-  const [mensaje, setMensaje] = React.useState('');
+  const [access,stateAccess] = useState();
+  const [posts,savePosts] = useState([]);
+  const [tries,setTries]= useState(0);
+  const [mensaje, setMensaje] = useState('');
 
   const [newData,setNewData]=useState({ titulo:'',lenguaje:'',tags:[] })
-  const [newTitulo, setNewTitulo] = React.useState('')
-  const [newLenguaje, setNewLenguaje] = React.useState('')
-  const [newTags, setNewTags] = React.useState([])
-  const [comments, setComments] = React.useState([])
+  const [newTitulo, setNewTitulo] = useState('')
+  const [newLenguaje, setNewLenguaje] = useState('')
+  const [newTags, setNewTags] = useState([])
+  const [comments, setComments] = useState([])
+  const [autor, setAutor] = useState([])
   const [comentario, setComentario] = useState('')
   const [like, setLike] = useState(false)
 
@@ -65,10 +66,10 @@ export default function NuevoPost(props) {
     setNewLenguaje(a.lenguaje)
     setNewTags(a.tags)
     setLike(a.me_gusta)
+    setComments(a.comentarios)
+    setAutor(a.autor)
     saveAutorUid(a.autor._id)
-    setComments(a.comentarios)    
     savePosts(a)
-    console.log(a)
   }
 
   useEffect(()=>{
@@ -261,7 +262,7 @@ export default function NuevoPost(props) {
                 helperText="El título debe debe tener de 6 a 30 caracteres" 
               />
               )}
-            <Typography variant="overline" style={{ fontSize: 15 }} > {posts.autor.username} </Typography>
+            <Typography style={{ fontSize: 15 }} variant="overline" > {autor.username} </Typography>
             <Typography className={classes.labelFecha} variant="overline" > {posts.fecha} </Typography>
             
             <Grid container direction="column" justify="flex-start" alignItems="flex-start" >
@@ -445,3 +446,4 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(1),
   }
 }));
+
