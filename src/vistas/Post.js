@@ -56,6 +56,7 @@ export default function NuevoPost(props) {
   const [newTitulo, setNewTitulo] = React.useState('')
   const [newLenguaje, setNewLenguaje] = React.useState('')
   const [newTags, setNewTags] = React.useState([])
+  const [comments, setComments] = React.useState([])
   const [comentario, setComentario] = useState('')
   const [like, setLike] = useState(false)
 
@@ -64,8 +65,10 @@ export default function NuevoPost(props) {
     setNewLenguaje(a.lenguaje)
     setNewTags(a.tags)
     setLike(a.me_gusta)
-    saveAutorUid(a.autor._id)    
+    saveAutorUid(a.autor._id)
+    setComments(a.comentarios)    
     savePosts(a)
+    console.log(a)
   }
 
   useEffect(()=>{
@@ -189,7 +192,7 @@ export default function NuevoPost(props) {
     myHeaders.append("token", token);
 
     var urlencoded = new URLSearchParams();
-    urlencoded.append("texo", comentario);
+    urlencoded.append("texto", comentario);
 
     var requestOptions = {
       method: 'PUT',
@@ -197,6 +200,8 @@ export default function NuevoPost(props) {
       body: urlencoded,
       redirect: 'follow'
     };
+
+    setComentario('')
 
     fetch("https://kogit2.herokuapp.com/posts/comentar/"+uid, requestOptions)
       .then(response => response.json())
@@ -256,6 +261,7 @@ export default function NuevoPost(props) {
                 helperText="El título debe debe tener de 6 a 30 caracteres" 
               />
               )}
+            <Typography variant="overline" style={{ fontSize: 15 }} > {posts.autor.username} </Typography>
             <Typography className={classes.labelFecha} variant="overline" > {posts.fecha} </Typography>
             
             <Grid container direction="column" justify="flex-start" alignItems="flex-start" >
@@ -272,7 +278,7 @@ export default function NuevoPost(props) {
               ) : (
                 <TextField 
                   variant="outlined"
-                  helperText="Separa mínimo 3, y máximo 4 tags por comas"
+                  helperText="Separa mínimo 3 y máximo 4 tags por comas"
                   value={(JSON.stringify(newTags)).replace(/['"]+/g, '').slice(1, -1)}
                   error={(newTags.length < 3 || newTags.length > 4) && tries >= 1 ? (true):(false) }
                   onChange={e=>setNewTags((e.target.value).split(','))} 
@@ -314,7 +320,7 @@ export default function NuevoPost(props) {
               </FormControl>
             </Grid>
           )}
-          
+          <br/>
           <Grid container direction="column" justify="flex-start" alignItems="flex-start"  className={classes.padding}>
             <TextField 
               fullWidth 
@@ -347,7 +353,9 @@ export default function NuevoPost(props) {
                   fullWidth
                   variant="filled"
                   label="Realiza un comentario" 
+                  value={comentario}
                   onChange={e=>setComentario(e.target.value)}
+                  style={{ marginBottom: 5 }}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -355,7 +363,19 @@ export default function NuevoPost(props) {
                       </InputAdornment>
                   ),}}
                 />
-                
+                {comments.map((comment) => {
+                  return (
+                    <li style={{ display: 'inline', flexDirection: 'column', width: '100%', marginTop: 3 }} >
+                      <Grid container direction="column" alignItems="flex-start" justify="flex-start" style={{ backgroundColor: '#F8F8F8', borderRadius: 10, width: '100%', margin: 2, padding: 5, paddingLeft: 5 }} >
+                        <Grid container direction="row" alignItems="center" justify="flex-start">
+                          <Typography variant="subtitle1" style={{ fontSize: 15, color: '#6B6B6B' }} > {comment.usuario.username} &nbsp; </Typography>
+                          <Typography variant="body2" style={{ fontSize: 10, color: '#ABABAB' }} > {comment.fecha} </Typography>
+                        </Grid>
+                        <Typography variant="subtitle1" > {comment.texto} </Typography>
+                      </Grid>
+                    </li>
+                  );
+                })}
               </Grid>
             ) : (
               <Grid container direction="row" alignItems="center" justify="flex-end" >
@@ -413,7 +433,7 @@ const useStyles = makeStyles((theme) => ({
   },
   padding: {
     paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(1),
+    paddingRight: theme.spacing(2),
   },
   input: {
     paddingTop: theme.spacing(1),
@@ -425,4 +445,3 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(1),
   }
 }));
-
