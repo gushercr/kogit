@@ -65,7 +65,7 @@ const Tarjeta = (props) => {
         </Typography>
       </CardContent>
       <CardActions justify="space-between" style={{ paddingLeft: 20, paddingRight: 30 }} >
-        <Button size="small" color="primary" onClick={seeMoreSubmit} >Ver Más</Button>
+        <Button size="small" color="primary" href={`/Post/${props.id}`} >Ver Más</Button>
         <FormControlLabel
           style={{ marginLeft: 'auto' }}
           label={props.likes}
@@ -93,3 +93,4 @@ const useStyles = makeStyles({
     width: '100%',
   },
 });
+
