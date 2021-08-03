@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import Divider from '@material-ui/core/Divider';
 import Chip from '@material-ui/core/Chip';
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Link from '@material-ui/core/Link';
 
 import Favorite from "@material-ui/icons/Favorite";
 
