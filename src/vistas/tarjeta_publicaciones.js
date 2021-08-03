@@ -11,7 +11,6 @@ import Chip from '@material-ui/core/Chip';
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 import Favorite from "@material-ui/icons/Favorite";
-import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 
 import { useHistory } from "react-router-dom";
 
@@ -20,16 +19,6 @@ const Tarjeta = (props) => {
   const history = useHistory();
   const fecha = new Date(props.fecha)
   const texto = (props.texto).substring(0, 300) + "...";
-
-  const seeMoreSubmit = () => {
-    //var id = props.id
-    //var path = `/Post/${id}`;
-    var path = {
-      pathname: '/Post',
-      state: props.id,
-    }
-    history.push(path);
-  }
 
   return (
     <Card variant="outlined" className={classes.root}>
