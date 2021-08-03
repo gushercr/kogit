@@ -39,7 +39,7 @@ const Tarjeta = (props) => {
             </Grid>
             { props.autor? 
               <Typography variant="h6"> 
-                <Link href={`/Perfil/${props.autor._id}`} color="inherit"> {props.autor.username} </Link> 
+                <a style={{textDecoration:"none",color:"#000"}} href={`/Perfil/${props.autor._id}`}>{props.autor.username}</a>
               </Typography> 
             : <> </> }
             <Divider style={{ marginTop: 10, marginBottom: 10 }} />
