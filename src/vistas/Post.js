@@ -265,7 +265,7 @@ export default function NuevoPost(props) {
               />
               )}
             <Typography style={{ fontSize: 15 }} variant="overline" > 
-              <Link href={`/PerfilUser/${autor._id}`} color="inherit"> {autor.username} </Link>
+              <Link href={`/Perfil/${autor._id}`} color="inherit"> {autor.username} </Link>
             </Typography>
             <Typography className={classes.labelFecha} variant="overline" > {posts.fecha} </Typography>
             
