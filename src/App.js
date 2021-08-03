@@ -18,6 +18,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import PerfilUsuarioE from './vistas/PerfilUsuarioE';
 
 
 
@@ -31,8 +32,8 @@ export default function App() {
         <Switch>
           <Route path="/Registro" component={Registro}/>
           <Route path="/Login" component={Login}/>
+          <Route path="/Perfil/:id" component={PerfilUsuarioE}/>
           <Route path="/Perfil" component={Perfil}/>
-          {/* <Route path="/ResultBusqueda" component={Perfil}/> */}
           <Route path="/Recuperar?key=:key" component={RecuperarPasswordEmail}/>
           <Route path="/Recuperar" component={recuperarPassword}/>
           <Route path="/Publicaciones" component={Publicaciones}/>

@@ -24,7 +24,7 @@ export default function Repositorio() {
   var saveDatos=(a)=>{    
     savePosts(a);
   }
-
+ 
   useEffect(()=>{
     if (token=='') {
       stateAccess(false)
@@ -63,7 +63,7 @@ export default function Repositorio() {
     <Grid container direction="column" justify="space-around" alignItems="center" className={classes.root} >
       {token==false?<Redirect to="/Login"/>:null}
       <Grid container direction="column" alignItems="center" className={classes.title}>
-        <Typography variant="h4" > PUBLICACIONES </Typography>
+        <Typography variant="h4" > Repositorio </Typography>
         <Typography variant="subtitle1" > Visualiza tus posts  </Typography>
       </Grid>
       <br/>
