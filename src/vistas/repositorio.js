@@ -28,7 +28,6 @@ export default function Repositorio(props) {
     saveFullResult(a)
     a.next != null ? setDispSiguiente(false) : setDispSiguiente(true)
     a.previous != null ? setDispAnterior(false) : setDispAnterior(true)
-    console.log(a)
   }
 
   useEffect(()=>{
@@ -113,6 +112,7 @@ export default function Repositorio(props) {
                         fecha={post.fecha} 
                         titulo={post.titulo} 
                         lenguaje={post.lenguaje}
+                        autor={post.autor}
                         tags={post.tags}
                         texto={post.texto} 
                         likes={post.likes}
