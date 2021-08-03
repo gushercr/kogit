@@ -37,7 +37,7 @@ export default function App() {
           <Route path="/Recuperar" component={recuperarPassword}/>
           <Route path="/Repositorio" component={Repositorio}/>
           <Route path="/Publicaciones" component={Publicaciones}/>
-          <Route path="/Post" component={Post}/>
+          <Route path="/Post/:id" component={Post}/>
           <Route path="/NuevoPost" component={NPost}/>
           <Route path="/ResultBusqueda" component={ResultBusqueda}/>
           <Route path="/" component={Inicio} exact/>
