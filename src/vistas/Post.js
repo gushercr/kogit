@@ -86,6 +86,8 @@ export default function NuevoPost(props) {
         headers: myHeaders,
         redirect: 'follow'
       };
+      
+      console.log(id)
 
       fetch(`https://kogit2.herokuapp.com/posts/${id.id}`, requestOptions)
         .then(response => response.json())
