@@ -36,6 +36,11 @@ const Tarjeta = (props) => {
                 &nbsp; - {props.lenguaje}
               </Typography>
             </Grid>
+            { props.autor? 
+              <Typography variant="h6"> 
+                <Link href={`/Perfil/${props.autor._id}`} color="inherit"> {props.autor.username} </Link> 
+              </Typography> 
+            : <> </> }
             <Divider style={{ marginTop: 10, marginBottom: 10 }} />
           </Grid>
           <Grid direction="column" justify="flex-start" alignItems="flex-start" style={{ flex: 1 }}>
