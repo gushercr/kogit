@@ -135,7 +135,7 @@ export default function NuevoPost(props) {
       redirect: 'follow'
     };
 
-    const res = await fetch("https://kogit2.herokuapp.com/posts/editar/"+id, requestOptions)
+    const res = await fetch(`https://kogit2.herokuapp.com/posts/editar/${id.id}`, requestOptions)
       .then(response => response.json())
       .then(result => result)
       .catch(error => console.log('error', error));
@@ -161,7 +161,7 @@ export default function NuevoPost(props) {
       redirect: 'follow'
     };
 
-    const res = await fetch("https://kogit2.herokuapp.com/posts/eliminar/"+id, requestOptions)
+    const res = await fetch(`https://kogit2.herokuapp.com/posts/eliminar/${id.id}`, requestOptions)
       .then(response => response.json())
       .then(result => result)
       .catch(error => console.log('error', error));
@@ -186,7 +186,7 @@ export default function NuevoPost(props) {
       redirect: 'follow'
     };
 
-    fetch("https://kogit2.herokuapp.com/posts/megusta/"+id, requestOptions)
+    fetch(`https://kogit2.herokuapp.com/posts/megusta/${id.id}`, requestOptions)
       .then(response => response.json())
       .then(result => saveDatos(result.post))
       .catch(error => console.log('error', error));
@@ -208,7 +208,7 @@ export default function NuevoPost(props) {
 
     setComentario('')
 
-    fetch("https://kogit2.herokuapp.com/posts/comentar/"+id, requestOptions)
+    fetch(`https://kogit2.herokuapp.com/posts/comentar/${id.id}`, requestOptions)
       .then(response => response.json())
       .then(result => saveDatos(result.post))
       .catch(error => console.log('error', error));
