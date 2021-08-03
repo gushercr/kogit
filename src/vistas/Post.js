@@ -21,10 +21,11 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Chip from '@material-ui/core/Chip';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Link from '@material-ui/core/Link';
 
 import { useLocalStorage } from "../useLocalStorage";
 import { useState,useEffect,useRedirect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { Redirect } from "react-router";
 
 //icon
@@ -42,7 +43,7 @@ export default function NuevoPost(props) {
   const [anchorEl, setAnchorEl] = useState(null);
   const [change, stateChange] = useState(true);
   const [dialogOpen, setDialogOpen] = useState(false);
-  const uid = props.location.state
+  const id = useParams()
 
   const [token,saveToken] = useLocalStorage('token','');
   const [userUid,saveUserUid]= useLocalStorage('uid','');
@@ -70,6 +71,7 @@ export default function NuevoPost(props) {
     setAutor(a.autor)
     saveAutorUid(a.autor._id)
     savePosts(a)
+    console.log(a)
   }
 
   useEffect(()=>{
@@ -85,7 +87,7 @@ export default function NuevoPost(props) {
         redirect: 'follow'
       };
 
-      fetch("https://kogit2.herokuapp.com/posts/"+uid, requestOptions)
+      fetch(`https://kogit2.herokuapp.com/posts/${id.id}`, requestOptions)
         .then(response => response.json())
         .then(result => saveDatos(result.post))
         .catch(error => console.log('error', error));
@@ -131,7 +133,7 @@ export default function NuevoPost(props) {
       redirect: 'follow'
     };
 
-    const res = await fetch("https://kogit2.herokuapp.com/posts/editar/"+uid, requestOptions)
+    const res = await fetch("https://kogit2.herokuapp.com/posts/editar/"+id, requestOptions)
       .then(response => response.json())
       .then(result => result)
       .catch(error => console.log('error', error));
@@ -157,7 +159,7 @@ export default function NuevoPost(props) {
       redirect: 'follow'
     };
 
-    const res = await fetch("https://kogit2.herokuapp.com/posts/eliminar/"+uid, requestOptions)
+    const res = await fetch("https://kogit2.herokuapp.com/posts/eliminar/"+id, requestOptions)
       .then(response => response.json())
       .then(result => result)
       .catch(error => console.log('error', error));
@@ -182,7 +184,7 @@ export default function NuevoPost(props) {
       redirect: 'follow'
     };
 
-    fetch("https://kogit2.herokuapp.com/posts/megusta/"+uid, requestOptions)
+    fetch("https://kogit2.herokuapp.com/posts/megusta/"+id, requestOptions)
       .then(response => response.json())
       .then(result => saveDatos(result.post))
       .catch(error => console.log('error', error));
@@ -204,7 +206,7 @@ export default function NuevoPost(props) {
 
     setComentario('')
 
-    fetch("https://kogit2.herokuapp.com/posts/comentar/"+uid, requestOptions)
+    fetch("https://kogit2.herokuapp.com/posts/comentar/"+id, requestOptions)
       .then(response => response.json())
       .then(result => saveDatos(result.post))
       .catch(error => console.log('error', error));
@@ -262,7 +264,9 @@ export default function NuevoPost(props) {
                 helperText="El título debe debe tener de 6 a 30 caracteres" 
               />
               )}
-            <Typography style={{ fontSize: 15 }} variant="overline" > {autor.username} </Typography>
+            <Typography style={{ fontSize: 15 }} variant="overline" > 
+              <Link href={`/PerfilUser/${autor._id}`} color="inherit"> {autor.username} </Link>
+            </Typography>
             <Typography className={classes.labelFecha} variant="overline" > {posts.fecha} </Typography>
             
             <Grid container direction="column" justify="flex-start" alignItems="flex-start" >
@@ -446,4 +450,3 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(1),
   }
 }));
-
